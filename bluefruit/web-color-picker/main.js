@@ -14,22 +14,16 @@ async function connect() {
     });
 
     console.log(device);
-    console.log(device.name);
 
     const server = await device.gatt.connect();
     const service = await server.getPrimaryService(serviceId);
     window.characteristic = await service.getCharacteristic(characteristicId);
-
-    window.characteristic.writeValue(
-        new Uint8Array([ 0, 0, 0, 255  ])
-    );
-    console.log(device);
 }
 
 async function sendData() {
     console.log(window.characteristic);
 
     await window.characteristic.writeValue(
-        new Uint8Array([ 0, 0, 0, 255  ])
+        new Uint8Array([ 0, 255, 0, 0  ])
     );
 }

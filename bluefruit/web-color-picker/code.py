@@ -8,16 +8,20 @@ from adafruit_bluefruit_connect.color_packet import ColorPacket
 
 uart_server = UARTServer()
 
+pixels = neopixel.NeoPixel(board.NEOPIXEL, 10, brightness=1, auto_write=True)
+
 while True:
     uart_server.start_advertising()
-    print("is advertising")
+    print("Is advertising")
     while not uart_server.connected:
         pass
 
     while uart_server.connected:
-        print(uart_server.read(1))
-        packet = Packet.from_stream(uart_server)
         print("Is connected")
-        print(packet)
-        if isinstance(packet, ColorPacket):
-            print(packet.color)
+        data = bytearray(uart_server.read(4))
+        if len(data) is not 0:
+            r = data[1]
+            g = data[2]
+            b = data[3]
+            pixels.fill((r, g, b))
+        
