@@ -1,7 +1,7 @@
 
 /**
  * Connect to Circuit Playground Bluefruit device
- * Device id: id vN56l0mnDAmGzlQ0VqUZog==
+ * https://learn.adafruit.com/introducing-the-adafruit-bluefruit-le-uart-friend?view=all#gatt-service-details
  */
 async function connect() {
     const serviceId = '6e400001-b5a3-f393-e0a9-e50e24dcca9e';
@@ -16,8 +16,8 @@ async function connect() {
     console.log(device);
     console.log(device.name);
 
-    let server = await device.gatt.connect();
-    let service = await server.getPrimaryService(serviceId);
+    const server = await device.gatt.connect();
+    const service = await server.getPrimaryService(serviceId);
     window.characteristic = await service.getCharacteristic(characteristicId);
 
     window.characteristic.writeValue(
