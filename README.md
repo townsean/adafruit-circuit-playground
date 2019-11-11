@@ -1,7 +1,7 @@
 # adafruit-circuit-playground
 Arduino sketch files and CircuitPython scripts for the Adafruit Circuit Playground
 
-## [web-color-picker](https://github.com/townsean/adafruit-circuit-playground/tree/master/bluefruit/web-color-picker)
+## 1. [web-color-picker](https://github.com/townsean/adafruit-circuit-playground/tree/master/bluefruit/web-color-picker)
 
 [Web Color Picker](https://github.com/townsean/adafruit-circuit-playground/tree/master/bluefruit/web-color-picker) is a vanilla JS web app that uses the experimental Web Bluetooth API to connect to an Adafruit Circuit Playground Bluefruit device.
 
